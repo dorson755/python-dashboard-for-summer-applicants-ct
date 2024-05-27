@@ -8,5 +8,8 @@ url = f'https://api.jotform.com/form/{form_id}/submissions?apiKey={api_key}'
 response = requests.get(url)
 data = response.json()
 
-# Pretty print the JSON data to understand its structure
-print(json.dumps(data, indent=4))
+# Save the JSON data to a file
+with open('jotform_data.json', 'w') as f:
+    json.dump(data, f, indent=4)
+
+print("JSON data saved to jotform_data.json")
